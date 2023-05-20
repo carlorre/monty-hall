@@ -1,15 +1,19 @@
+import { ReactNode } from "react";
+
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
+  loader?: ReactNode;
 }
 
-const Button = ({ type, label, disabled }: IButtonProps) => (
+const Button = ({ type, label, disabled, loader }: IButtonProps) => (
   <button
-    className={`border w-fit bg-montyBlue text-white p-2 rounded-md ${
+    className={`h-12 flex w-full items-center justify-between border bg-montyBlue text-white px-4 rounded-md ${
       disabled ? "hover:cursor-not-allowed opacity-50" : ""
     }`}
     type={type}
   >
-    {label}
+    <div>{label}</div>
+    {loader && <div className="ml-4">{loader}</div>}
   </button>
 );
 
