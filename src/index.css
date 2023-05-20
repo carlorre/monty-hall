@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "LatinCondensed";
+  src: url("/fonts/LatinCondensed.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.textShadow {
+  text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
+}

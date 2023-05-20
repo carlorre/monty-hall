@@ -2,7 +2,15 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        latinCondensed: ["LatinCondensed", "sans-serif"],
+      },
+      colors: {
+        montyOrange: "#f3a428",
+        montyBlue: "#3e6063",
+      },
+    },
   },
   plugins: [],
 };
