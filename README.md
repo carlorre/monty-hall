@@ -1,36 +1,32 @@
 # Monty Hall Paradox Simulator
 
-## Background
-
-The Monty Hall problem is a probability puzzle where a player chooses
-one of three doors to potentially win a car. After the player's initial
-choice, the host reveals one of the remaining doors that does not contain
-the car. The player is then given the option to switch their choice to
-the other unopened door. Surprisingly, switching doors increases the
-chances of winning the car from 1/3 to 2/3.
-
 ## Description
 
 The purpose of this application is to prove the Monty Hall Paradox by
 simulating a chosen number of games and whether or not to change the
-original door choice and then displaying the results.
+original door choice and then displaying the results. The frontend handles
+the user input and displays results, and the backend runs the simulation.
 
-## Features
+## Frontend
 
-- Input field to specify the number of simulations
-- Checkbox to toggle the option of changing the door
-- Button to start the simulation by making a request to the backend
-- Display of the simulation results obtained from the backend
+- React, Vite, TypeScript, Tailwind CSS, Vitest, React Testing Library
 
-## Frontend stack
+### Instalation
 
-- React, Vite, TypeScript, Tailwind CSS
-
-## Instalation
-
+- cd frontend
 - npm i
 - npm run dev
 
-## Testing
+### Testing
 
 - npm run test
+
+## Backend
+
+- AWS Lambda, AWS API Gateway
+
+###
+
+-cd backend
+-sam build
+-sam local start-api
