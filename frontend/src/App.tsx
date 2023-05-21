@@ -4,7 +4,7 @@ import { useValidateNumberInput } from "./hooks/useValidateNumberInput";
 import useFormSubmit from "./hooks/useFormSubmit";
 
 const App = () => {
-  const [changeDoor, setChangeDoor] = useState(false);
+  const [shouldChangeDoor, setShouldChangeDoor] = useState(false);
   const { number, handleChange } = useValidateNumberInput();
   const { tableData, loading, handleSubmit } = useFormSubmit();
 
@@ -17,7 +17,7 @@ const App = () => {
 
         <form
           className="flex flex-col mt-20 items-center justify-center gap-y-2"
-          onSubmit={handleSubmit}
+          onSubmit={(e) => number && handleSubmit(e, number, shouldChangeDoor)}
         >
           <Input
             label="Number of simulations:"
@@ -29,7 +29,7 @@ const App = () => {
           />
           <Checkbox
             label="Change door?"
-            onChange={() => setChangeDoor(!changeDoor)}
+            onChange={() => setShouldChangeDoor(!shouldChangeDoor)}
           />
           <Button
             type="submit"
