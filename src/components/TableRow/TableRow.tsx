@@ -1,4 +1,4 @@
-import { ITableData } from "../App";
+import { ITableData } from "../../hooks/useFormSubmit";
 
 const TableRow = ({ heading, value }: ITableData) => (
   <tr>
