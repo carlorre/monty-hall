@@ -68,7 +68,7 @@ export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGat
     }
 };
 
-const simulate = (numberOfSimulations: number, shouldChangeDoor: boolean): { wins: number; losses: number } => {
+export const simulate = (numberOfSimulations: number, shouldChangeDoor: boolean): { wins: number; losses: number } => {
     let wins = 0;
     const assignDoor = () => Math.floor(Math.random() * 3);
 
@@ -88,4 +88,4 @@ const simulate = (numberOfSimulations: number, shouldChangeDoor: boolean): { win
     return { wins, losses };
 };
 
-const calculatePercentage = (portion: number, total: number) => parseFloat(((portion / total) * 100).toFixed(2));
+export const calculatePercentage = (portion: number, total: number) => parseFloat(((portion / total) * 100).toFixed(2));
