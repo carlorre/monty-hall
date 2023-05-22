@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, TableRow, Checkbox, Input } from "./components";
 import { useValidateNumberInput } from "./hooks/useValidateNumberInput";
 import useFormSubmit from "./hooks/useFormSubmit";
+import goat from "../assets/goat.png";
 
 const App = () => {
   const [shouldChangeDoor, setShouldChangeDoor] = useState(false);
@@ -40,7 +41,7 @@ const App = () => {
             disabled={!number || loading}
             loader={
               <img
-                src="assets/goat.png"
+                src={goat}
                 className={`h-6 ${loading ? "animate-spin" : ""}`}
               />
             }
