@@ -11,7 +11,6 @@ const Button = ({ type, label, disabled, loader }: IButtonProps) => (
       disabled ? "hover:cursor-default opacity-80" : ""
     }`}
     type={type}
-    data-testid="button"
   >
     <div>{label}</div>
     {loader && <div className="ml-4">{loader}</div>}

@@ -33,6 +33,8 @@ describe("useFormSubmit", () => {
       { heading: "Win percentage", value: 50 },
       { heading: "Loss percentage", value: 50 },
     ]);
+
+    expect(result.current.errorMessage).toBe("");
   });
 
   it("should handle form submission error and log the error", async () => {

@@ -10,13 +10,19 @@ describe("Button", () => {
 
   it("pressing button should submit form", () => {
     const mockFunction = vi.fn((e) => e.preventDefault());
-    const { getByTestId } = render(
+    render(
       <form onSubmit={mockFunction}>
-        <Button type="submit" label="" />
+        <Button type="submit" label="submit" />
       </form>
     );
-    const button = getByTestId("button") as HTMLButtonElement;
-    fireEvent.click(button);
+    fireEvent.click(screen.getByRole("button"));
     expect(mockFunction).toHaveBeenCalled();
+  });
+
+  it("pressing button should not trigger action when disabled", () => {
+    const mockFunction = vi.fn();
+    render(<Button label="Click me" onClick={mockFunction} disabled />);
+    fireEvent.click(screen.getByRole("button"));
+    expect(mockFunction).not.toHaveBeenCalled();
   });
 });

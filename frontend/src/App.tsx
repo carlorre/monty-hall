@@ -10,12 +10,11 @@ const App = () => {
   const { tableData, loading, handleSubmit, errorMessage } = useFormSubmit();
 
   return (
-    <div className="h-screen flex flex-col items-center pt-6">
-      <div className="max-w-5xl">
-        <h1 className="font-latinCondensed textShadow text-7xl text-montyOrange text-center">
-          Monty Hall Simulator
+    <div className="h-screen w-full flex flex-col items-center pt-6">
+      <div className="max-w-md px-2 xs:p-0">
+        <h1 className="font-latinCondensed textShadow text-7xl text-montyOrange text-center ">
+          MONTY HALL SIMULATOR
         </h1>
-
         <form
           className="flex flex-col mt-20 items-center justify-center gap-y-2"
           onSubmit={(e) => {
@@ -43,6 +42,7 @@ const App = () => {
               <img
                 src={goat}
                 className={`h-6 ${loading ? "animate-spin" : ""}`}
+                alt="spinner"
               />
             }
           />
@@ -54,7 +54,7 @@ const App = () => {
           {tableData && !loading && (
             <table className="text-left border w-full pr-4">
               {tableData.map(({ heading, value }) => (
-                <TableRow heading={heading} value={value} />
+                <TableRow key={heading} heading={heading} value={value} />
               ))}
             </table>
           )}

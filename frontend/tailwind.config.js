@@ -8,7 +8,7 @@ export default {
       },
       colors: {
         montyOrange: "#f3a428",
-        montyBlue: "#3e6063",
+        montyBlue: "#05142b",
       },
     },
   },

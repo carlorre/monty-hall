@@ -1,15 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
-export interface ITableData {
-  heading: string;
-  value: number;
-}
+import { ITableRowData } from "../components/TableRow/TableRow";
 
 const url = import.meta.env.VITE_APP_MONTY_HALL_API_URL;
 
 export const useFormSubmit = () => {
   const [loading, setLoading] = useState(false);
-  const [tableData, setTableData] = useState<ITableData[]>([]);
+  const [tableData, setTableData] = useState<ITableRowData[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
   const handleSubmit = (
     numberOfSimulations: number,
@@ -32,6 +29,7 @@ export const useFormSubmit = () => {
           winPercentage,
           lossPercentage,
         } = res.data;
+
         setTableData([
           {
             heading: "Number of simulations",
@@ -45,10 +43,11 @@ export const useFormSubmit = () => {
             value: lossPercentage,
           },
         ]);
+
         setLoading(false);
       })
       .catch((err) => {
-        setErrorMessage(err.message);
+        setErrorMessage(err.message || "Unkown error");
         setLoading(false);
       });
   };

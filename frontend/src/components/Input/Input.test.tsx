@@ -9,8 +9,8 @@ describe("Input", () => {
   });
 
   it("should update value onChange", () => {
-    const { getByTestId } = render(<Input label="test" />);
-    const inputElement = getByTestId("input") as HTMLInputElement;
+    render(<Input label="test" />);
+    const inputElement = screen.getByRole("textbox") as HTMLInputElement;
     fireEvent.change(inputElement, { target: { value: "123" } });
     expect(inputElement.value).toBe("123");
   });

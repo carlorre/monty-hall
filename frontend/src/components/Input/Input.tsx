@@ -14,7 +14,6 @@ const Input = ({ label, type, onChange, min, max, required }: IInput) => (
       min={min}
       max={max}
       required={required}
-      data-testid="input"
     />
   </label>
 );
