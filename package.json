@@ -1,9 +1,0 @@
-{
-  "name": "montyhallproblem",
-  "version": "1.0.0",
-  "description": "Monty Hall Problem Monorepo",
-  "scripts": {
-    "start:frontend": "cd frontend && npm start",
-    "start:backend": "cd backend && npm start"
-  }
-}

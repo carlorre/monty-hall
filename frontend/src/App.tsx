@@ -6,7 +6,7 @@ import useFormSubmit from "./hooks/useFormSubmit";
 const App = () => {
   const [shouldChangeDoor, setShouldChangeDoor] = useState(false);
   const { number, handleChange } = useValidateNumberInput();
-  const { tableData, loading, handleSubmit } = useFormSubmit();
+  const { tableData, loading, handleSubmit, errorMessage } = useFormSubmit();
 
   return (
     <div className="h-screen flex flex-col items-center pt-6">
@@ -17,7 +17,10 @@ const App = () => {
 
         <form
           className="flex flex-col mt-20 items-center justify-center gap-y-2"
-          onSubmit={(e) => number && handleSubmit(e, number, shouldChangeDoor)}
+          onSubmit={(e) => {
+            e.preventDefault();
+            number && handleSubmit(number, shouldChangeDoor);
+          }}
         >
           <Input
             label="Number of simulations:"
@@ -43,7 +46,10 @@ const App = () => {
             }
           />
         </form>
-        <div className="flex justify-center items-center mt-20 w-full">
+        {errorMessage && (
+          <div className="mt-2 text-red-600">{errorMessage}</div>
+        )}
+        <div className="flex justify-center items-center mt-10 w-full">
           {tableData && !loading && (
             <table className="text-left border w-full pr-4">
               {tableData.map(({ heading, value }) => (

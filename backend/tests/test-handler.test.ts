@@ -1,7 +1,7 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { calculatePercentage, lambdaHandler, simulate } from '../../app';
+import { calculatePercentage, lambdaHandler, simulate } from '../app';
 import { expect, describe, it } from '@jest/globals';
-import { baseApiProxyEvent } from '../baseApiProxyEvent';
+import { baseApiProxyEvent } from './baseApiProxyEvent';
 
 describe('Unit test for app handler', () => {
     const numberOfSimulations = 100;

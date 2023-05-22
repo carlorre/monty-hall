@@ -10,13 +10,14 @@ const url = "http://127.0.0.1:3000/montyHall/simulate";
 export const useFormSubmit = () => {
   const [loading, setLoading] = useState(false);
   const [tableData, setTableData] = useState<ITableData[]>([]);
+  const [errorMessage, setErrorMessage] = useState("");
   const handleSubmit = (
-    e: React.FormEvent<HTMLFormElement>,
     numberOfSimulations: number,
     shouldChangeDoor: boolean
   ) => {
-    e.preventDefault();
     setLoading(true);
+    setTableData([]);
+    setErrorMessage("");
 
     axios
       .post(url, {
@@ -47,11 +48,12 @@ export const useFormSubmit = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        setErrorMessage(err.message);
+        setLoading(false);
       });
   };
 
-  return { handleSubmit, loading, tableData };
+  return { handleSubmit, loading, tableData, errorMessage };
 };
 
 export default useFormSubmit;
