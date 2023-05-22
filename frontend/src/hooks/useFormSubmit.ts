@@ -5,7 +5,7 @@ export interface ITableData {
   value: number;
 }
 
-const url = "http://127.0.0.1:3000/montyHall/simulate";
+const url = import.meta.env.VITE_APP_MONTY_HALL_API_URL;
 
 export const useFormSubmit = () => {
   const [loading, setLoading] = useState(false);
