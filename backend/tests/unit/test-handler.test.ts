@@ -1,7 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { calculatePercentage, lambdaHandler, simulate } from '../app';
-import { expect, describe, it } from '@jest/globals';
-import { baseApiProxyEvent } from './baseApiProxyEvent';
+import { calculatePercentage, lambdaHandler, simulate } from '../../app';
+import { baseApiProxyEvent } from '../baseApiProxyEvent';
 
 describe('Unit test for app handler', () => {
     const numberOfSimulations = 100;
@@ -71,6 +70,20 @@ describe('Unit test for app handler', () => {
         expect(JSON.parse(result.body)).toEqual({
             error: 'Invalid parameters',
             message: 'numberOfSimulations must be a number and shouldChangeDoor must be a boolean.',
+        });
+    });
+
+    it('verifies response with missing request body', async () => {
+        const event: APIGatewayProxyEvent = {
+            ...baseApiProxyEvent,
+        };
+        const result: APIGatewayProxyResult = await lambdaHandler(event);
+
+        expect(result.statusCode).toEqual(400);
+
+        expect(JSON.parse(result.body)).toEqual({
+            error: 'Missing parameters',
+            message: 'The request must include numberOfSimulations and shouldChangeDoor.',
         });
     });
 
