@@ -9,7 +9,12 @@ the user input and displays results, and the backend runs the simulation.
 
 ## Frontend
 
-- React, Vite, TypeScript, Tailwind CSS, Vitest, React Testing Library
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+- Vitest
+- React Testing Library
 
 ### Install & run
 
@@ -23,7 +28,9 @@ the user input and displays results, and the backend runs the simulation.
 
 ## Backend
 
-- AWS Lambda, AWS API Gateway, Jest
+- AWS Lambda
+- AWS API Gateway
+- Jest
 
 ### Install & run
 
