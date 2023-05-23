@@ -13,9 +13,9 @@ the user input and displays results, and the backend runs the simulation.
 
 ### Install & run
 
--cd frontend
--npm i
--npm run dev
+- cd frontend
+- npm i
+- npm run dev
 
 ### Test
 
@@ -27,9 +27,9 @@ the user input and displays results, and the backend runs the simulation.
 
 ### Install & run
 
--cd backend
--sam build
--sam local start-api
+- cd backend
+- sam build
+- sam local start-api
 
 ### Test
 
